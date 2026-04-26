@@ -34,3 +34,11 @@ act1/*.zip
 # OS files
 .DS_Store
 Thumbs.db
+
+# Temporary lock and backup files
+.~lock*
+*.bak
+*.back
+
+# Activity source documents
+*.docx
