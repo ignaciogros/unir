@@ -1,0 +1,101 @@
+---
+description: Global coding standards for Python, HTML, CSS and JavaScript
+alwaysApply: true
+---
+
+# Global Development Rules
+
+## Communication
+
+- Keep responses very short.
+- Use a professional tone.
+- Do not explain unless explicitly requested.
+
+## Scope and Priority
+
+- Apply these rules by default across the workspace.
+- If an activity/instruction requires specific names or structure, follow the activity/instruction first.
+
+## General Standards
+
+- Preserve backward compatibility unless explicitly requested otherwise.
+- Prefer minimal diffs and avoid unrelated changes.
+- Do not introduce new dependencies unless necessary.
+- Never commit secrets.
+- Validate all external inputs.
+
+## Naming and Language
+
+- Use English for file names, function names, class names, variable names, comments, and docstrings.
+- Exception: keep required non-English names only when the activity explicitly mandates them.
+- Code comments must be brief and descriptive.
+- Prefer one-line comments whenever possible.
+- Do not add comments that only restate function parameters or return values.
+
+## Python Rules
+
+- Follow PEP8.
+- Use 4 spaces for indentation.
+- Use type hints in all public functions and methods.
+- Use strict typing:
+    - Avoid `Any` unless strictly justified.
+    - Type all parameters and return values.
+- Prefer `dataclasses` for structured data when appropriate.
+- Keep functions small and single-purpose.
+- Avoid global state unless strictly necessary.
+- Use Python `logging` (`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`).
+- Do not silently suppress exceptions; raise actionable errors.
+- Public modules, classes, and functions must include docstrings.
+
+## HTML Rules
+
+- Use semantic HTML5 elements.
+- Use 4 spaces for indentation.
+- Keep structure readable and consistent.
+- Use lowercase tags and attributes.
+- Use double quotes for attribute values.
+- Add `alt` text for informative images.
+- Ensure basic accessibility (`label` for inputs, logical heading order).
+- Any HTML interface must target accessibility equivalent to WCAG AA minimum.
+- In any project with web interface, ask the user whether they want Bootstrap before implementation.
+- The use of Bootstrap is valued and recommended when it fits the project constraints.
+
+## CSS Rules
+
+- Use 4 spaces for indentation.
+- Prefer class-based selectors over ids for styling.
+- Avoid `!important` unless strictly necessary.
+- Keep selectors simple and maintainable.
+- Group related declarations and keep consistent property ordering.
+- Prefer responsive layouts and relative units when appropriate.
+
+## JavaScript Rules
+
+- Use 4 spaces for indentation.
+- Use `const` by default; use `let` only when reassignment is required; avoid `var`.
+- Use strict equality (`===`, `!==`).
+- Keep functions small and single-purpose.
+- Use clear, descriptive English names.
+- Handle errors explicitly; do not swallow exceptions.
+- Add concise English comments only when logic is non-obvious.
+- Avoid implicit globals and side effects.
+
+## Testing Rules
+
+- Framework: `pytest` for Python.
+- Minimum test coverage: 80%.
+- Tests must be deterministic, isolated, and fast.
+- Add/update tests for any new or changed logic.
+- Suggested Python test structure:
+    - `tests/test_<module>.py`
+
+## Documentation Rules
+
+- Keep `README.md` updated when behavior, setup, or usage changes.
+- Include objective, installation, execution, and usage examples for deliverables.
+
+## Security Rules
+
+- Never execute arbitrary user-provided code.
+- Sanitize/validate input data before processing.
+- Keep dependencies updated when modifying the project.
