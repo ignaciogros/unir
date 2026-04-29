@@ -85,3 +85,8 @@ py -m pytest -p no:cacheprovider
 **Pregunta:** Ordénalo cronológicamente con fecha/hora en cada entrada.  
 **Respuesta:** Documento reorganizado en orden cronológico y cada entrada etiquetada con fecha y hora.
 
+## 14) 2026-04-29 20:07 (UTC+2) - Validaciones en opción 4 (Asociar contrato)
+
+**Pregunta:** Si selecciono la opción 4 y pongo un ID de empleado que no existe, no debería pedir fechas; debería mostrar "Empleado no encontrado.". Tampoco debe dejar introducir fechas no válidas y el error debe saltar antes de `could not convert string to float: 'x'`.  
+**Respuesta:** Se corrigió `main.py` para validar primero si el empleado existe antes de solicitar fechas. También se añadió validación de fechas (`YYYY-MM-DD` y orden inicio/fin) antes de pedir o convertir el salario. Resultado: con ID inexistente muestra `Empleado no encontrado.`, y con fecha inválida muestra error de formato sin llegar al fallo de conversión de `float`.
+

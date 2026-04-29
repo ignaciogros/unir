@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+
 from gestor_contratos import GestorContratos
 from gestor_empleados import GestorEmpleados
 
@@ -45,6 +47,20 @@ def mostrar_menu() -> None:
     print("6. Salir")
 
 
+def validar_fechas_contrato(fecha_inicio: str, fecha_fin: str) -> None:
+    """Validate date format and logical order for contract dates."""
+    try:
+        inicio = datetime.strptime(fecha_inicio, "%Y-%m-%d")
+        fin = datetime.strptime(fecha_fin, "%Y-%m-%d")
+    except ValueError as error:
+        raise ValueError(
+            "Formato de fecha inválido. Use YYYY-MM-DD."
+        ) from error
+
+    if inicio > fin:
+        raise ValueError("La fecha de inicio no puede ser posterior a la fecha fin.")
+
+
 def ejecutar() -> None:
     """Run the terminal menu loop."""
     gestor_empleados = GestorEmpleados()
@@ -76,8 +92,13 @@ def ejecutar() -> None:
                     mostrar_error("Empleado no encontrado.")
             elif opcion == "4":
                 id_empleado = int(input("ID del empleado: "))
+                empleado = gestor_empleados.buscar_empleado(id_empleado)
+                if not empleado:
+                    mostrar_error("Empleado no encontrado.")
+                    continue
                 fecha_inicio = input("Fecha inicio (YYYY-MM-DD): ")
                 fecha_fin = input("Fecha fin (YYYY-MM-DD): ")
+                validar_fechas_contrato(fecha_inicio, fecha_fin)
                 salario = float(input("Salario: "))
                 contrato = gestor_contratos.asociar_contrato(
                     id_empleado,
