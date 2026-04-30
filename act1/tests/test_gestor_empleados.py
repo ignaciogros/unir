@@ -59,3 +59,21 @@ def test_empleado_tiene_contrato(tmp_path) -> None:
     assert contrato["id_contrato"] == 1
     assert len(recargado["contratos"]) == 1
     assert recargado["contratos"][0]["salario"] == 2500.0
+
+
+def test_lista_contratos_activos(tmp_path) -> None:
+    gestor_empleados, gestor_contratos = crear_gestores(tmp_path)
+    empleado = gestor_empleados.agregar_empleado("Eva Gray", "Engineering")
+
+    gestor_contratos.asociar_contrato(
+        empleado["id"],
+        "2024-01-01",
+        "2099-01-01",
+        3200.0,
+    )
+
+    activos = gestor_contratos.listar_contratos_activos()
+
+    assert len(activos) == 1
+    assert activos[0]["id_empleado"] == empleado["id"]
+    assert activos[0]["contrato"]["salario"] == 3200.0

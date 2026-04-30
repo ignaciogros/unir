@@ -36,7 +36,7 @@ python main.py
 Ejecutar pruebas con:
 
 ```bash
-pytest
+py -m pytest
 ```
 
 ## Ejemplo de Uso
@@ -44,3 +44,5 @@ pytest
 1. Añadir un empleado desde la opción `1` del menú.
 2. Asociar un contrato desde la opción `4`.
 3. Listar contratos vencidos desde la opción `5`.
+4. Listar contratos activos desde la opción `6`.
+5. Salir desde la opción `7`.

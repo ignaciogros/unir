@@ -44,7 +44,8 @@ def mostrar_menu() -> None:
     print("3. Buscar empleado")
     print("4. Asociar contrato")
     print("5. Listar contratos vencidos")
-    print("6. Salir")
+    print("6. Listar contratos activos")
+    print("7. Salir")
 
 
 def validar_fechas_contrato(fecha_inicio: str, fecha_fin: str) -> None:
@@ -115,6 +116,13 @@ def ejecutar() -> None:
                     for item in vencidos:
                         mostrar_info(str(item))
             elif opcion == "6":
+                activos = gestor_contratos.listar_contratos_activos()
+                if not activos:
+                    mostrar_info("No hay contratos activos.")
+                else:
+                    for item in activos:
+                        mostrar_info(str(item))
+            elif opcion == "7":
                 mostrar_info("Saliendo...")
                 break
             else:

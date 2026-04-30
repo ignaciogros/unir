@@ -90,3 +90,23 @@ py -m pytest -p no:cacheprovider
 **Pregunta:** Si selecciono la opción 4 y pongo un ID de empleado que no existe, no debería pedir fechas; debería mostrar "Empleado no encontrado.". Tampoco debe dejar introducir fechas no válidas y el error debe saltar antes de `could not convert string to float: 'x'`.  
 **Respuesta:** Se corrigió `main.py` para validar primero si el empleado existe antes de solicitar fechas. También se añadió validación de fechas (`YYYY-MM-DD` y orden inicio/fin) antes de pedir o convertir el salario. Resultado: con ID inexistente muestra `Empleado no encontrado.`, y con fecha inválida muestra error de formato sin llegar al fallo de conversión de `float`.
 
+## 15) 2026-04-30 06:39 (UTC+2) - Nueva opción de menú
+
+**Pregunta:** Añade la opción "Listar contratos activos".  
+**Respuesta:** Se actualizó `main.py` con la opción `6` para listar contratos activos y la salida pasó a opción `7`; también se añadió un test para `listar_contratos_activos()` y la suite quedó en `5 passed`.
+
+## 16) 2026-04-30 06:41 (UTC+2) - Ejecutar skill de comentarios
+
+**Pregunta:** Ejecuta `@.cursor/skills/update-code-comments/SKILL.md`.  
+**Respuesta:** Se revisaron comentarios y docstrings de `act1`; no se necesitaron cambios porque ya eran claros, breves y no redundantes.
+
+## 17) 2026-04-30 06:41 (UTC+2) - Ejecutar skill de documentación
+
+**Pregunta:** Ejecuta `@.cursor/skills/update-documentation/SKILL.md`.  
+**Respuesta:** Se actualizaron `act1/README.md` y `act1/README_es.md` para reflejar el estado actual: comando de pruebas recomendado (`py -m pytest`) y opciones de menú nuevas (`6` contratos activos, `7` salir).
+
+## 18) 2026-04-30 06:42 (UTC+2) - Regenerar ZIP con archivos adicionales
+
+**Pregunta:** Genera un nuevo ZIP, incluyendo `@act1/empleados.json` y `@README_es.md`.  
+**Respuesta:** Se regeneró `act1/actmod2_nombre_apellido.zip` incluyendo ambos archivos de forma explícita y se verificó el contenido final.
+
