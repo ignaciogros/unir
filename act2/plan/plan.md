@@ -12,7 +12,7 @@
 
 ---
 
-## Phase 1 — Project structure
+## ~~Phase 1 — Project structure~~ ✓ DONE
 
 Create the following layout inside `act2/`:
 
@@ -37,7 +37,7 @@ act2/
 
 ---
 
-## Phase 2 — Provider adapters (`providers/`)
+## ~~Phase 2 — Provider adapters (`providers/`)~~ ✓ DONE
 
 ### `providers/__init__.py`
 - Export `get_provider(name: str) -> BaseProvider`.
@@ -62,7 +62,7 @@ def chat(messages: list[dict], temperature, max_tokens, top_p) -> str
 
 ---
 
-## Phase 3 — `chatbot.py`
+## ~~Phase 3 — `chatbot.py`~~ ✓ DONE
 
 - Load `PROVIDER` from `.env`; instantiate the matching adapter.
 - Load `TEMPERATURE`, `MAX_TOKENS`, `TOP_P` from `.env` (with sensible defaults).
@@ -73,7 +73,7 @@ def chat(messages: list[dict], temperature, max_tokens, top_p) -> str
 
 ---
 
-## Phase 4 — `.env` / `.env.dist`
+## ~~Phase 4 — `.env` / `.env.dist`~~ ✓ DONE
 
 `.env.dist` (committed):
 ```
