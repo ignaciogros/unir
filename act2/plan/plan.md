@@ -104,55 +104,42 @@ TOP_P=1.0
 
 ---
 
-## Phase 5 — Test with Azure (3 use cases, for the report)
+## ~~Phase 5 — Test with Azure (3 use cases, for the report)~~ ✓ DONE
 
-Run `chatbot.py` with `PROVIDER=azure` and document:
-
-| # | Scenario | Key parameters to vary |
-|---|----------|------------------------|
-| 1 | [placeholder — e.g. book recommendations] | temperature ↑ |
-| 2 | [placeholder — e.g. technical Q&A] | max_tokens ↓ |
-| 3 | [placeholder — e.g. creative writing] | top_p variation |
-
-Capture terminal screenshots for the PDF report.
+Three use cases documented in the PDF, each run with TEMPERATURE=0 and TEMPERATURE=1:
+1. Book recommendations (adult audience / primary-school audience)
+2. Tech stack for a clothes-swap app
+3. Short poem about a lonely child in winter
 
 ---
 
-## Phase 6 — Cost analysis and optimisation
+## ~~Phase 6 — Cost analysis and optimisation~~ ✓ DONE
 
-- Use Azure Pricing Calculator to estimate cost for each use case.
-- Count tokens per request (response includes `usage` in API reply).
-- Document at least three optimisation strategies (e.g. shorter system prompt, lower max_tokens, caching repeated queries).
-
----
-
-## Phase 7 — `README.md` and `README_es.md`
-
-Follow the same structure as `act1/README.md`. Include:
-- Project objective.
-- Prerequisites check (e.g. `pip show openai`, `python --version`).
-- Virtual environment setup (`python -m venv venv` + activation).
-- `.env` configuration guide.
-- How to switch models.
-- Run instructions.
+Documented in `informe.md` (source) and `docs/Informe_act2_Ignacio_Gros.pdf`:
+- Model: gpt-5.4-nano ($0,20/1M input · $0,02/1M cached input · $1,25/1M output)
+- 8 real test calls: ~$0,00104 total
+- Scale projection: ~$12,45/month at 1.000 active users
+- 7 optimisation strategies including prompt caching (×10 saving on cached tokens)
 
 ---
 
-## Phase 8 — `docs/report.md`
+## ~~Phase 7 — `README.md` and `README_es.md`~~ ✓ DONE
 
-Skeleton (sections only, to be filled before PDF export):
-1. Introducción y objetivos
-2. Configuración del entorno Azure
-3. Arquitectura del chatbot
-4. Casos de uso y pruebas (3 × subsección con capturas)
-5. Análisis de costes y optimización
-6. Conclusiones
+Both files written with: objective, prerequisites check, venv setup, .env config,
+model switching, run instructions, test instructions.
 
 ---
 
-## Phase 9 — ZIP archive
+## ~~Phase 8 — `docs/report.md`~~ ✓ DONE (as PDF)
 
-Generate `actmod2_Ignacio_Gros.zip` containing:
+Report delivered as `docs/Informe_act2_Ignacio_Gros.pdf` directly.
+`docs/report.md` skeleton was not used; may be removed.
+
+---
+
+## ~~Phase 9 — ZIP archive~~ ✓ DONE
+
+`actmod2_Ignacio_Gros.zip` (229,8 KB) generated containing:
 ```
 chatbot.py
 providers/
@@ -161,9 +148,8 @@ tests/
 requirements.txt
 README.md
 README_es.md
+docs/Informe_act2_Ignacio_Gros.pdf
 ```
-
-Exclude: `.env`, `__pycache__`, `.pytest_cache`, `docs/`, `plan/`.
 
 ---
 

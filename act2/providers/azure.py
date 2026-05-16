@@ -16,7 +16,7 @@ class AzureProvider:
             model=self._deployment,
             messages=messages,
             temperature=temperature,
-            max_tokens=max_tokens,
+            max_completion_tokens=max_tokens,
             top_p=top_p,
         )
         return response.choices[0].message.content
